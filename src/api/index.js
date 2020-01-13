@@ -38,7 +38,7 @@ export const loginWithUserName = ({username,pwd,captcha}) => ajax({
       captcha
   },
   headers: {
-    needToken: true
+    needToken: false
   }
 })
 export const loginWithPhone = ({phone,code}) => ajax({

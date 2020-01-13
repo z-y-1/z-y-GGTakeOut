@@ -1,5 +1,5 @@
 import {SAVE_ADDRESS} from './mutations_type';
-import {SAVE_CATE,SAVE_SHOPLIST,SAVE_USER,SAVE_TOKEN} from './mutations_type'
+import {SAVE_CATE,SAVE_SHOPLIST,SAVE_USER,SAVE_TOKEN,LOGOUT} from './mutations_type'
 export default {
     [SAVE_ADDRESS](state,address){
         state.address = address
@@ -15,5 +15,11 @@ export default {
     },
     [SAVE_TOKEN](state,token){
         state.token = token
+    },
+    [LOGOUT](state){
+        state.user = {}
+        state.token = ''
+        // 情况localStorage中的token
+        localStorage.removeItem('token_key')
     }
 }

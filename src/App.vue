@@ -7,9 +7,14 @@
 
 <script>
 import FooterGuide from './components/FooterGuite/FooterGuite'
-
+import {SAVE_USER} from './store/mutations_type'
 export default {
-  components:{FooterGuide} 
+  components:{FooterGuide} ,
+  async mounted(){
+    let result = await this.$API.autoLogin()
+    // 存入至Vuex中
+    this.$store.commit(SAVE_USER, result.data)
+  }
 }
 </script>
 
