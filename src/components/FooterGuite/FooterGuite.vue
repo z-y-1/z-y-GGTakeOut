@@ -23,7 +23,7 @@
     export default {
         methods:{
             goPath(path){
-                this.$router.replace(path)
+                path !== this.$route.path && this.$router.push(path)
             }
         }
     }
