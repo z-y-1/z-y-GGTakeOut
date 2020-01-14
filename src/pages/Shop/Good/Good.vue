@@ -29,7 +29,7 @@
                     <span class="now">￥{{food.price}}</span>
                   </div>
                   <div class="cartcontrol-wrapper">
-                    CartControl组件
+                    <CartControl :food='food'/>
                   </div>
                 </div>
               </li>
@@ -44,8 +44,12 @@
 
 <script>
   import {mapState} from 'vuex'
+  import CartControl from '../../../components/CartControl/CartControl'
   import BScroll from 'better-scroll'
   export default {
+    components:{
+      CartControl
+    },
     data(){
       return {
         tops: [], // 用于放置每个点距离当前滑动顶部的高度
@@ -80,12 +84,14 @@
       _initScroll(){
         this.leftScroll = new BScroll('.leftContainer', {
           scrollY: true, // 纵向滑动
+          click:true
         })
         this.rightScroll = new BScroll('.rightContainer', {
           scrollY: true, // 纵向滑动
           // probeType: 1, // 非实时
           probeType: 2, // 实时, 惯性滑动不计算
           // probeType: 3, // 实时, 惯性滑动计算
+          click:true
         })
 
 
