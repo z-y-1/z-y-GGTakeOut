@@ -8,6 +8,7 @@ import store from './store'
 import router from './router'
 import {Button} from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import './mock/mockSever'
 
 Vue.prototype.$API = API
 Vue.config.productionTip = false
