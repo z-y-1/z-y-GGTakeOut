@@ -2,7 +2,7 @@
   <div id="goodContainer">
     <div class="leftContainer">
       <ul class="navList" ref="leftUl">
-        <li :class="{active: navIndex === index}" v-for="(good, index) in goods" :key="index">
+        <li @click="changeNavIndex(index)" :class="{active: navIndex === index}" v-for="(good, index) in goods" :key="index">
           {{good.name}}
         </li>
 
@@ -133,6 +133,11 @@
 
         // 只渲染一次，提高性能
         this.tops = tops
+      },
+      changeNavIndex(index){
+        this.scrollY = this.tops[index]
+        // 右侧区域滑动到对应的位置
+        this.rightScroll.scrollTo(0, -this.scrollY, 1000)
       }
     },
     watch: {
